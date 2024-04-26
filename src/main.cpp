@@ -6,13 +6,12 @@
 int main(int ac, char **argv)
 {
     sex::ComponentManager componentManager;
-    sex::PositionComponent *component = new sex::PositionComponent(10, 10);
+    sex::PositionComponent *component = componentManager.add<sex::PositionComponent>(0, 10, 10);
     sex::PositionComponent *componentNull = nullptr;
     sex::PositionComponent *componentBis = nullptr;
 
-    componentManager.addComponent<sex::PositionComponent>(0, component);
-    componentNull = componentManager.getComponent<sex::PositionComponent>(1655);
-    componentBis = componentManager.getComponent<sex::PositionComponent>(0);
+    componentNull = componentManager.get<sex::PositionComponent>(1655);
+    componentBis = componentManager.get<sex::PositionComponent>(0);
 
     if (componentNull == nullptr) {
         std::cout << "OK: componentNull is null" << std::endl;
