@@ -1,4 +1,4 @@
-#include "ComponentManager.hpp"
+#include "Registry.hpp"
 #include "PositionComponent.hpp"
 
 #include <iostream>
@@ -6,6 +6,7 @@
 int main(int ac, char **argv)
 {
     sex::ComponentManager componentManager;
+    sex::Registry registry;
     sex::PositionComponent *component = componentManager.add<sex::PositionComponent>(0, 10, 10);
     sex::PositionComponent *componentNull = nullptr;
     sex::PositionComponent *componentBis = nullptr;

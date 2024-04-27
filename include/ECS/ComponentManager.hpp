@@ -3,6 +3,7 @@
 #include "IComponent.hpp"
 #include "NotAComponentException.hpp"
 #include "ComponentContainerDoesNotExistException.hpp"
+#include "Entity.hpp"
 
 #include <unordered_map>
 #include <vector>
@@ -12,17 +13,6 @@
 #include <iostream>
 
 #define Type std::string
-
-/*struct TypeHasher
-{
-    TypeHasher() {}
-    size_t operator()(const Type& t) const
-    {
-        return std::hash<std::string>{}(t.name());
-    }
-};*/
-
-#define Entity std::size_t
 #define ComponentContainer std::unordered_map<Entity, std::unique_ptr<IComponent>>
 
 namespace sex {
@@ -31,8 +21,7 @@ namespace sex {
             ComponentManager() : _componentsContainers{} {}
             ComponentManager(ComponentManager const &) = delete;
             ComponentManager(ComponentManager const &&) = delete;
-
-            ~ComponentManager() {}
+            ~ComponentManager() = default;
 
             template<typename T, typename... Args>
             T *add(Entity entity, Args... args)
