@@ -19,7 +19,11 @@ namespace sex {
 
     void EntityManager::destory(Entity entity)
     {
-        std::remove(_entities.begin(), _entities.end(), entity);
+        auto i = std::find(_entities.begin(), _entities.end(), entity);
+
+        if (i != _entities.end()) {
+            _entities.erase(i);
+        }
     }
 
     std::vector<Entity> const &EntityManager::get() const

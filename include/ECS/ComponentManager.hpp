@@ -11,6 +11,7 @@
 #include <memory>
 #include <typeinfo>
 #include <iostream>
+#include <functional>
 
 #define Type std::string
 #define ComponentContainer std::unordered_map<Entity, std::unique_ptr<IComponent>>
@@ -65,6 +66,16 @@ namespace sex {
             }
 
             void destroy(Entity entity);
+
+            template<typename T>
+            void apply(std::function<void(Entity, T &)> function)
+            {
+                ComponentContainer &componentContainer = getComponentContainer<T>();
+
+                for (auto &component: componentContainer) {
+                    function(component.first, *(static_cast<T*>(component.second.get())));
+                }
+            }
 
             template<typename T>
             static Type getType() noexcept

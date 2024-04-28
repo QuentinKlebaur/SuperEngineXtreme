@@ -8,6 +8,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
 # Project name
 project(SuperEngineXtreme)
 
+# Compile options
+add_compile_options(-Wall -Wextra -Wpedantic -g)
+
 # includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS
