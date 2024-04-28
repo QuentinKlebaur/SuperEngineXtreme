@@ -1,10 +1,12 @@
 #include "Registry.hpp"
 #include "PositionComponent.hpp"
+#include "Chrono.hpp"
 
 #include <iostream>
 
 int main(int ac, char **argv)
 {
+    std::cout << "--- ComponentManager ---" << std::endl;
     sex::ComponentManager componentManager;
     sex::Registry registry;
     sex::PositionComponent *component = componentManager.add<sex::PositionComponent>(0, 10, 10);
@@ -31,4 +33,15 @@ int main(int ac, char **argv)
     } else {
         std::cout << "OK: componentBis is not Null" << std::endl;
     }
+
+    std::cout << "--- Chrono ---" << std::endl;
+    sex::Chrono chrono;
+
+    std::cout << "Start chrono" << std::endl;
+    for (int i = 0; i < 10000; ++i);
+    std::cout << "ElapsedTime: " << chrono.getElapsedTime() << std::endl;
+    for (int i = 0; i < 10000; ++i);
+    std::cout << "ElapsedTime: " << chrono.reset() << std::endl;
+    for (int i = 0; i < 10000; ++i);
+    std::cout << "ElapsedTime: " << chrono.reset() << std::endl;
 }

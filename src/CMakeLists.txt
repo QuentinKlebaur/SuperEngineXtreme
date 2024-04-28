@@ -4,6 +4,7 @@ set(SOURCES
     ECS/ComponentManager.cpp
     ECS/SystemManager.cpp
     ECS/Registry.cpp
+    Utils/Chrono.cpp
 )
 
 # Add an executable target
