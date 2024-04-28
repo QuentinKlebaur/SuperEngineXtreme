@@ -38,10 +38,8 @@ int main(int ac, char **argv)
     sex::Chrono chrono;
 
     std::cout << "Start chrono" << std::endl;
-    for (int i = 0; i < 10000; ++i);
-    std::cout << "ElapsedTime: " << chrono.getElapsedTime() << std::endl;
-    for (int i = 0; i < 10000; ++i);
-    std::cout << "ElapsedTime: " << chrono.reset() << std::endl;
-    for (int i = 0; i < 10000; ++i);
-    std::cout << "ElapsedTime: " << chrono.reset() << std::endl;
+    while (chrono.getElapsedTime() < 3000000);
+    std::cout << "3 seconds elapsed: " << chrono.reset() << std::endl;
+    while (chrono.getElapsedTime() < 5000000);
+    std::cout << "5 seconds elapsed: " << chrono.getElapsedTime() << std::endl;
 }

@@ -5,7 +5,7 @@ namespace sex {
     {
     }
 
-    int Chrono::reset()
+    int64_t Chrono::reset()
     {
         std::chrono::_V2::system_clock::time_point now = std::chrono::high_resolution_clock::now();
         int elapsedTime = std::chrono::duration_cast<std::chrono::microseconds>(now - _timer).count();
@@ -14,7 +14,7 @@ namespace sex {
         return elapsedTime;
     }
 
-    int Chrono::getElapsedTime()
+    int64_t Chrono::getElapsedTime()
     {
         std::chrono::_V2::system_clock::time_point now = std::chrono::high_resolution_clock::now();
 

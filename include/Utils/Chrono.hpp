@@ -11,8 +11,8 @@ namespace sex {
             Chrono(Chrono const &&) = delete;
             ~Chrono() = default;
 
-            int reset();
-            int getElapsedTime();
+            int64_t reset();
+            int64_t getElapsedTime();
         private:
             std::chrono::_V2::system_clock::time_point _timer;
     };
