@@ -47,7 +47,7 @@ namespace sex {
             template<typename T>
             bool has(Entity entity)
             {
-                ComponentContainer &componentContainer = createComponentContainer<T>();
+                ComponentContainer &componentContainer = getComponentContainer<T>();
 
                 auto iterator = componentContainer.find(entity);
                 if (iterator == componentContainer.end()) {
@@ -59,14 +59,13 @@ namespace sex {
             template<typename T>
             void destroy(Entity entity)
             {
-                (void)entity;
+                ComponentContainer &componentContainer = getComponentContainer<T>();
+
+                std::remove(componentContainer.begin(), componentContainer.end(), entity);
             }
 
-            void destroy(Entity entity)
-            {
-                (void)entity;
-            }
-            
+            void destroy(Entity entity);
+
             template<typename T>
             static Type getType() noexcept
             {
@@ -89,7 +88,7 @@ namespace sex {
             ComponentContainer &getComponentContainer()
             {
                 Type componentTypeInfo = getType<T>();
-    
+
                 auto iterator = _componentsContainers.find(componentTypeInfo);
                 if (iterator == _componentsContainers.end()) {
                     return createComponentContainer<T>();

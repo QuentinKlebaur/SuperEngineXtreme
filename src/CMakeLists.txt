@@ -1,6 +1,7 @@
 set(SOURCES
     main.cpp
     ECS/EntityManager.cpp
+    ECS/ComponentManager.cpp
     ECS/SystemManager.cpp
     ECS/Registry.cpp
 )
