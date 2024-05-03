@@ -11,6 +11,19 @@ project(SuperEngineXtreme)
 # Compile options
 add_compile_options(-Wall -Wextra -Wpedantic -g)
 
+# Libraries
+include(FetchContent)
+
+set(SFML_VERSION "2.5.1")
+
+FetchContent_Declare(
+    SFML
+    URL https://www.sfml-dev.org/files/SFML-${SFML_VERSION}-sources.zip
+)
+FetchContent_MakeAvailable(SFML)
+
+target_link_libraries(SuperEngineXtreme PRIVATE sfml-graphics sfml-audio sfml-window sfml-system)
+
 # includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS
