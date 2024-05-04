@@ -22,9 +22,20 @@ namespace sex
                 _systems.emplace_back(std::make_unique<T>(args...));
             }
 
-            void update(Registry &registry, int64_t useconds);
+            template<typename T>
+            void remove()
+            {
+                T *toRemove = nullptr;
 
-            // TODO remove system
+                for (auto i = _systems.begin(); i != _systems.end(); ++i) {
+                    toRemove = dynamic_cast<T*>(i->get());
+                    if (toRemove) {
+                        i = _systems.erase(i);
+                    }
+                }
+            }
+
+            void update(Registry &registry, int64_t useconds);
 
         private:
             std::vector<std::unique_ptr<ISystem>> _systems;

@@ -65,7 +65,7 @@ namespace sex {
 
         private:
             SystemManager _systemManager;
-            ComponentManager _componentManager;
             EntityManager _entityManager;
+            ComponentManager _componentManager;
     };
 }

@@ -22,8 +22,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(SFML)
 
-target_link_libraries(SuperEngineXtreme PRIVATE sfml-graphics sfml-audio sfml-window sfml-system)
-
 # includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS
@@ -32,6 +30,8 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Components
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Exceptions
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Utils
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Graphic
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Graphic/Sfml
 )
 
 # Include subdirectories

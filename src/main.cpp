@@ -2,6 +2,7 @@
 #include "PositionComponent.hpp"
 #include "Chrono.hpp"
 #include "FallSystem.hpp"
+#include "SfmlGraphicModule.hpp"
 
 #include <iostream>
 
@@ -9,6 +10,7 @@ int main(int ac, char **argv)
 {
     sex::Registry registry;
     sex::Chrono chrono;
+    sex::SfmlGraphicModule graphicModule;
     int64_t useconds = 0;
     unsigned int loop = 0;
 
@@ -18,6 +20,7 @@ int main(int ac, char **argv)
 
         registry.addComponent<sex::PositionComponent>(entity, 0, 10 + std::rand() % 90);
     }
+    graphicModule.createWindow(1080, 720);
     chrono.reset();
     while (registry.getEntities().size()) {
         useconds = chrono.reset();
