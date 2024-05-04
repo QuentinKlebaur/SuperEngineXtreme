@@ -1,11 +1,14 @@
 #pragma once
 
 #include "Texture.hpp"
-#include "IWindow.hpp"
 
 #include <string>
 
 namespace sex {
+    class IWindow;
+    class IDrawable;
+    class Color;
+
     class IGraphicModule {
         public:
             virtual ~IGraphicModule() {};
@@ -14,5 +17,7 @@ namespace sex {
             virtual void removeTexture(Texture texture) = 0;
             virtual void createWindow(unsigned int height, unsigned int width) = 0;
             virtual IWindow *window() = 0;
+
+            virtual IDrawable *createRectangle(int x, int y, Color const &color) = 0;
     };
 }

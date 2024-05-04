@@ -14,5 +14,7 @@ namespace sex {
             ~SfmlWindow() = default;
 
             void draw(IDrawable const &drawObject) override;
+            void clear(Color const &color) override;
+            void display() override;
     };
 }

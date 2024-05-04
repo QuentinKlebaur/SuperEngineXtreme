@@ -16,11 +16,15 @@ include(FetchContent)
 
 set(SFML_VERSION "2.5.1")
 
+set(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_BINARY_DIR}/external")
+
+if(NOT TARGET sfml-graphics)
 FetchContent_Declare(
     SFML
     URL https://www.sfml-dev.org/files/SFML-${SFML_VERSION}-sources.zip
 )
 FetchContent_MakeAvailable(SFML)
+endif()
 
 # includes
 include_directories(

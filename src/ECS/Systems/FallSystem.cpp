@@ -6,7 +6,7 @@ namespace sex {
     void FallSystem::update(Registry &registry, int64_t useconds)
     {
         registry.applyOnComponents<PositionComponent>([&](Entity entity, PositionComponent &position){
-            position.y = position.y - (0.00001 * useconds);
+            position.y = position.y - (0.0001 * useconds);
             if (position.y < 0) {
                 _entitiesToDestroy.push_back(entity);
             }

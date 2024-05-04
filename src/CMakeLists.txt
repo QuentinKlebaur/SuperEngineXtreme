@@ -5,6 +5,8 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/ECS/SystemManager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ECS/Registry.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/ECS/Systems/FallSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ECS/Systems/RenderSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/ECS/Components/DrawableComponent.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Utils/Chrono.cpp
 )
 
@@ -12,6 +14,7 @@ set(GRAPHICAL_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Graphic/Color.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Graphic/Sfml/SfmlGraphicModule.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Graphic/Sfml/SfmlWindow.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Graphic/Sfml/SfmlDrawable.cpp
 )
 
 # Add an executable target
