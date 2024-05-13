@@ -14,18 +14,6 @@ add_compile_options(-Wall -Wextra -Wpedantic -g)
 # Libraries
 include(FetchContent)
 
-set(SFML_VERSION "2.5.1")
-
-set(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_BINARY_DIR}/external")
-
-if(NOT TARGET sfml-graphics)
-FetchContent_Declare(
-    SFML
-    URL https://www.sfml-dev.org/files/SFML-${SFML_VERSION}-sources.zip
-)
-FetchContent_MakeAvailable(SFML)
-endif()
-
 # includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS
@@ -37,6 +25,9 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Graphic
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Graphic/Sfml
 )
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 # Include subdirectories
 add_subdirectory(src)
