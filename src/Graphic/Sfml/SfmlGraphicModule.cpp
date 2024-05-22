@@ -14,7 +14,7 @@ sex::SfmlGraphicModule::SfmlGraphicModule()
 
 }
 
-sex::IDrawable *sex::SfmlGraphicModule::createRectangle(int width, int height, Color const &color)
+sex::IDrawable *sex::SfmlGraphicModule::createRectangle(unsigned int width, unsigned int height, Color const &color)
 {
     sf::RectangleShape *rect = new sf::RectangleShape{{0, 0}};
     IDrawable *drawable = new SfmlDrawable{rect};

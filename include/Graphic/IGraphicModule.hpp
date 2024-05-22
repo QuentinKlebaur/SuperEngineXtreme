@@ -18,6 +18,6 @@ namespace sex {
             virtual void createWindow(unsigned int height, unsigned int width) = 0;
             virtual IWindow *window() = 0;
 
-            virtual IDrawable *createRectangle(int x, int y, Color const &color) = 0;
+            virtual IDrawable *createRectangle(unsigned int x, unsigned int y, Color const &color) = 0;
     };
 }

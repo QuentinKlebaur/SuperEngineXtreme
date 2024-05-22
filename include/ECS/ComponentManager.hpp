@@ -62,6 +62,7 @@ namespace sex {
             {
                 ComponentContainer &componentContainer = getComponentContainer<T>();
 
+                // TODO erase
                 std::remove(componentContainer.begin(), componentContainer.end(), entity);
             }
 

@@ -13,7 +13,7 @@ namespace sex {
             SfmlGraphicModule(SfmlGraphicModule &&) = delete;
             ~SfmlGraphicModule() = default;
 
-            IDrawable *createRectangle(int width, int height, Color const &color) override;
+            IDrawable *createRectangle(unsigned int width, unsigned int height, Color const &color) override;
             IWindow *window() override;
             Texture loadTexture(std::string const &texturePath) override;
             void removeTexture(Texture texture) override;
