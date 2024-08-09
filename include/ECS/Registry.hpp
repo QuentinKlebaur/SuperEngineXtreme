@@ -5,6 +5,7 @@
 #include "EntityManager.hpp"
 
 namespace sex {
+    class IGraphicModule;
     class Registry {
         public:
             Registry() = default;
@@ -67,9 +68,7 @@ namespace sex {
                 return _systemManager.get<T>();
             }
 
-
-
-            void update(int64_t useconds);
+            void update(IGraphicModule &graphic, int64_t useconds);
 
         private:
             SystemManager _systemManager;

@@ -17,9 +17,9 @@ namespace sex
             EventSystem(EventSystem const &&) = delete;
             ~EventSystem() = default;
 
-            void beforeUpdate(Registry &registry, int64_t useconds) override;
-            void update(Registry &registry, int64_t useconds) override;
-            void afterUpdate(Registry &registry, int64_t useconds) override;
+            void beforeUpdate(UpdateContext const &) override;
+            void update(UpdateContext const &) override;
+            void afterUpdate(UpdateContext const &) override;
 
         private:
             std::multimap<EventType, EventCallBack> _callBacks;

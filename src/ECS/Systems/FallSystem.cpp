@@ -1,27 +1,28 @@
 #include "FallSystem.hpp"
 #include "Registry.hpp"
 #include "PositionComponent.hpp"
+#include "UpdateContext.hpp"
 
 namespace sex {
-    void FallSystem::update(Registry &registry, int64_t useconds)
+    void FallSystem::update(UpdateContext const &context)
     {
-        registry.applyOnComponents<PositionComponent>([&](Entity entity, PositionComponent &position){
-            position.y = position.y - (0.0001 * useconds);
+        context.getRegistry().applyOnComponents<PositionComponent>([&](Entity entity, PositionComponent &position){
+            position.y = position.y - (0.0001 * context.getElapsedTime());
             if (position.y < 0) {
                 _entitiesToDestroy.push_back(entity);
             }
         });
     }
 
-    void FallSystem::beforeUpdate(Registry &registry, int64_t useconds)
+    void FallSystem::beforeUpdate(UpdateContext const &context)
     {
     }
 
-    void FallSystem::afterUpdate(Registry &registry, int64_t useconds)
+    void FallSystem::afterUpdate(UpdateContext const &context)
     {
         while (!_entitiesToDestroy.empty()) {
             Entity entity = _entitiesToDestroy.back();
-            registry.destoryEntity(entity);
+            context.getRegistry().destoryEntity(entity);
             _entitiesToDestroy.pop_back();
         }
     }

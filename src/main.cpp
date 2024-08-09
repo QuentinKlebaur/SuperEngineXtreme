@@ -30,6 +30,6 @@ int main(int ac, char **argv)
     chrono.reset();
     while (registry.getEntities().size()) {
         useconds = chrono.reset();
-        registry.update(useconds);
+        registry.update(graphicModule, useconds);
     }
 }

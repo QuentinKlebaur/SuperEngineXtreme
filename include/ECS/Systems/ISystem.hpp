@@ -5,14 +5,14 @@
 #include <cstdint>
 
 namespace sex {
-    class Registry;
+    class UpdateContext;
 
     class ISystem {
         public:
             virtual ~ISystem() {};
 
-            virtual void beforeUpdate(Registry &registry, int64_t useconds) = 0;
-            virtual void update(Registry &registry, int64_t useconds) = 0;
-            virtual void afterUpdate(Registry &registry, int64_t useconds) = 0;
+            virtual void beforeUpdate(UpdateContext const &) = 0;
+            virtual void update(UpdateContext const &) = 0;
+            virtual void afterUpdate(UpdateContext const &) = 0;
     };
 }

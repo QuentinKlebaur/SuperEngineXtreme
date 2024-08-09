@@ -1,12 +1,13 @@
 #include "SystemManager.hpp"
+#include "UpdateContext.hpp"
 
 namespace sex {
-    void SystemManager::update(Registry &registry, int64_t useconds)
+    void SystemManager::update(UpdateContext const &context)
     {
         for (auto &system: _systems) {
-            system->beforeUpdate(registry, useconds);
-            system->update(registry, useconds);
-            system->afterUpdate(registry, useconds);
+            system->beforeUpdate(context);
+            system->update(context);
+            system->afterUpdate(context);
         }
     }
 }

@@ -1,4 +1,6 @@
 #include "Registry.hpp"
+#include "IGraphicModule.hpp"
+#include "UpdateContext.hpp"
 
 namespace sex {
     Entity Registry::createEntity()
@@ -27,8 +29,10 @@ namespace sex {
         _componentManager.destroy(entity);
     }
 
-    void Registry::update(int64_t useconds)
+    void Registry::update(IGraphicModule &graphic, int64_t useconds)
     {
-        _systemManager.update(*this, useconds);
+        UpdateContext context{graphic, *this, useconds};
+
+        _systemManager.update(context);
     }
 }

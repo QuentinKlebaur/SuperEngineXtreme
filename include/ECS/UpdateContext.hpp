@@ -22,6 +22,6 @@ namespace sex {
         private:
             IGraphicModule &_graphicModule;
             Registry &_registry;
-            int64_t _elapsedTime
+            int64_t _elapsedTime;
     };
 }

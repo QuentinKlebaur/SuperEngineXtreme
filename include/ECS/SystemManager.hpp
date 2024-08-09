@@ -7,7 +7,7 @@
 
 namespace sex
 {
-    class Registry;
+    class UpdateContext;
 
     class SystemManager {
         public:
@@ -48,7 +48,7 @@ namespace sex
                 return nullptr;
             }
 
-            void update(Registry &registry, int64_t useconds);
+            void update(UpdateContext const &);
 
         private:
             std::vector<std::unique_ptr<ISystem>> _systems;
