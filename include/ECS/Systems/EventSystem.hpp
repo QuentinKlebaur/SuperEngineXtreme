@@ -22,7 +22,7 @@ namespace sex
             void afterUpdate(UpdateContext const &) override;
 
             void triggerEvent(IEvent const &);
-            void addCallBack(EventType, CallBackFunction &);
+            void addCallBack(EventType, CallBackFunction);
             void removeCallBack();
 
         private:

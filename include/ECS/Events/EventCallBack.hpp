@@ -7,7 +7,7 @@ namespace sex {
     class EventCallBack {
         public:
             EventCallBack() = delete;
-            EventCallBack(CallBackFunction &callBack);
+            EventCallBack(CallBackFunction callBack);
             EventCallBack(EventCallBack const &) = default;
             EventCallBack(EventCallBack const &&) = delete;
             ~EventCallBack() = default;

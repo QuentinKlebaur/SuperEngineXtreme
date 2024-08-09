@@ -12,6 +12,12 @@ sex::SfmlWindow::SfmlWindow(unsigned int width, unsigned int height) : sf::Rende
 {
 }
 
+
+void sex::SfmlWindow::close()
+{
+    sf::RenderWindow::close();
+}
+
 bool sex::SfmlWindow::isOpen() const
 {
     return sf::RenderWindow::isOpen();
@@ -60,7 +66,7 @@ std::unique_ptr<sex::IEvent> sex::SfmlWindow::fromSfmlEvent(sf::Event const &eve
             return std::make_unique<CloseWindowEvent>();
             break;
 
-        case sf::Event::KeyPressed:
+        case sf::Event:: MouseButtonPressed:
             return std::make_unique<ClickEvent>(getMousePosition());
             break;
 

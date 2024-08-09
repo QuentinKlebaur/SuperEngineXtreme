@@ -28,7 +28,7 @@ void sex::EventSystem::afterUpdate(UpdateContext const &)
 
 }
 
-void sex::EventSystem::addCallBack(EventType eventType, CallBackFunction &callBack)
+void sex::EventSystem::addCallBack(EventType eventType, CallBackFunction callBack)
 {
     _callBacks.emplace(eventType, callBack);
 }

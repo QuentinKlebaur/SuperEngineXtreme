@@ -1,6 +1,6 @@
 #include "EventCallBack.hpp"
 
-sex::EventCallBack::EventCallBack(CallBackFunction &callBack) : _callBack{callBack}
+sex::EventCallBack::EventCallBack(CallBackFunction callBack) : _callBack{callBack}
 {
 }
 

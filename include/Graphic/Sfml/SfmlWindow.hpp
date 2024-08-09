@@ -15,6 +15,7 @@ namespace sex {
             SfmlWindow(SfmlWindow &&) = delete;
             ~SfmlWindow() = default;
 
+            void close() override;
             bool isOpen() const override;
             Vector2<short> getMousePosition() const override;
             void fillEvents(std::queue<std::unique_ptr<IEvent>> &events) override;

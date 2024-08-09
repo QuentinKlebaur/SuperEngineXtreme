@@ -14,6 +14,7 @@ namespace sex {
         public:
             virtual ~IWindow() {};
 
+            virtual void close() = 0;
             virtual bool isOpen() const = 0;
             virtual void fillEvents(std::queue<std::unique_ptr<IEvent>> &events) = 0;
             virtual Vector2<short> getMousePosition() const = 0;
