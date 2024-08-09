@@ -2,6 +2,9 @@
 
 #include "ISystem.hpp"
 
+#include <functional>
+#include <map>
+
 namespace sex
 {
     class EventSystem : public ISystem
@@ -17,6 +20,6 @@ namespace sex
             void afterUpdate(Registry &registry, int64_t useconds) override;
 
         private:
-            std::vector<Entity> _entitiesToDestroy;
+//            std::multimap<>
     };
 }
