@@ -107,7 +107,6 @@ namespace sex {
                 }
                 return iterator->second;
             }
-
             std::unordered_map<Type, ComponentContainer> _componentsContainers;
     };
 }

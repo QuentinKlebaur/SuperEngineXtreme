@@ -61,6 +61,14 @@ namespace sex {
                 _systemManager.add<T>(args...);
             }
 
+            template<typename T>
+            T *getSystem()
+            {
+                return _systemManager.get<T>();
+            }
+
+
+
             void update(int64_t useconds);
 
         private:

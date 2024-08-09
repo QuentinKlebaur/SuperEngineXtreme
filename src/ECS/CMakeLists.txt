@@ -1,5 +1,6 @@
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Components)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Systems)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Events)
 
 set(SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/ComponentManager.cpp

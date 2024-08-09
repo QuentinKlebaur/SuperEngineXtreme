@@ -19,6 +19,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS/Components
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS/Systems
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/ECS/Events
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Components
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Exceptions
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Utils

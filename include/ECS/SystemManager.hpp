@@ -35,6 +35,19 @@ namespace sex
                 }
             }
 
+            template<typename T>
+            T *get()
+            {
+                T *system = nullptr;
+
+                for (auto i = _systems.begin(); i != _systems.end(); ++i) {
+                    system = dynamic_cast<T*>(i->get());
+                    if (system != nullptr)
+                        return system;
+                }
+                return nullptr;
+            }
+
             void update(Registry &registry, int64_t useconds);
 
         private:
