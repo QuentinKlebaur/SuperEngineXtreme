@@ -4,7 +4,7 @@
 #include "Vector2.hpp"
 
 namespace sex {
-    struct ClickEvent : EventBase {
+    struct ClickEvent : public EventBase {
         public:
             ClickEvent() = default;
             ClickEvent(Vector2<short> const &);

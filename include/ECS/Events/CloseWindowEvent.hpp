@@ -2,7 +2,7 @@
 #include "Vector2.hpp"
 
 namespace sex {
-    class CloseWindowEvent : EventBase
+    class CloseWindowEvent : public EventBase
     {
         public:
             CloseWindowEvent();

@@ -3,7 +3,7 @@
 #include "IEvent.hpp"
 
 namespace sex {
-    class EventBase : IEvent
+    class EventBase :public IEvent
     {
         public:
             EventBase() = delete;
