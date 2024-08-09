@@ -1,12 +1,8 @@
 #include "ClickEvent.hpp"
 
-
-sex::ClickEvent::ClickEvent(Vector2<short> const &position) : mousePosition{position}
+sex::ClickEvent::ClickEvent(Vector2<short> const &position) :
+    EventBase{sex::EventType::CLICK},
+    mousePosition{position}
 {
 
-}
-
-sex::EventType sex::ClickEvent::getType() const
-{
-    return sex::EventType::CLICK;
 }
