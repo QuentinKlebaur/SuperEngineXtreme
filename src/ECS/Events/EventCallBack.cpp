@@ -1,6 +1,6 @@
 #include "EventCallBack.hpp"
 
-sex::EventCallBack::EventCallBack(std::function<bool(sex::IEvent const &)> &callBack) : _callBack{callBack}
+sex::EventCallBack::EventCallBack(CallBackFunction &callBack) : _callBack{callBack}
 {
 }
 

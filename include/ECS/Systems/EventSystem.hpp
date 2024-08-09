@@ -21,6 +21,10 @@ namespace sex
             void update(UpdateContext const &) override;
             void afterUpdate(UpdateContext const &) override;
 
+            void triggerEvent(IEvent const &);
+            void addCallBack(EventType, CallBackFunction &);
+            void removeCallBack();
+
         private:
             std::multimap<EventType, EventCallBack> _callBacks;
     };
