@@ -21,12 +21,6 @@ int main(int ac, char **argv)
     graphicModule.createWindow(w.x, w.y);
     registry.addSystem<sex::FallSystem>();
     registry.addSystem<sex::RenderSystem>(graphicModule.window());
-    if (registry.getSystem<sex::FallSystem>() == nullptr)
-        return 1;
-    else
-        std::cout << "FALLSYSTEM EXISTS" << std::endl;
-    if (registry.getSystem<sex::Registry>() == nullptr)
-        return 1;
     for (unsigned int i = 0; i < 40000; ++i) {
         sex::Entity entity = registry.createEntity();
 

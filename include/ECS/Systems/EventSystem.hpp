@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ISystem.hpp"
+#include "IEvent.hpp"
+#include "EventCallBack.hpp"
 
 #include <functional>
 #include <map>
@@ -20,6 +22,6 @@ namespace sex
             void afterUpdate(Registry &registry, int64_t useconds) override;
 
         private:
-//            std::multimap<>
+            std::multimap<EventType, EventCallBack> _callBacks;
     };
 }
