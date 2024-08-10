@@ -23,13 +23,13 @@ namespace sex {
             // Components
 
             template<typename T, typename... Args>
-            T *addComponent(Entity entity, Args... args)
+            T &addComponent(Entity entity, Args... args)
             {
                 return _componentManager.add<T>(entity, args...);
             }
 
             template<typename T>
-            T *getComponent(Entity entity)
+            T &getComponent(Entity entity)
             {
                 return _componentManager.get<T>(entity);
             }
@@ -57,13 +57,13 @@ namespace sex {
             // Systems
 
             template<typename T, typename... Args>
-            void addSystem(Args... args)
+            T &addSystem(Args... args)
             {
-                _systemManager.add<T>(args...);
+                return _systemManager.add<T>(args...);
             }
 
             template<typename T>
-            T *getSystem()
+            T &getSystem()
             {
                 return _systemManager.get<T>();
             }

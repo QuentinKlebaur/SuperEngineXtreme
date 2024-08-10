@@ -3,6 +3,8 @@
 #include "Color.hpp"
 #include "CloseWindowEvent.hpp"
 #include "ClickEvent.hpp"
+#include "KeyPressedEvent.hpp"
+#include "KeyReleasedEvent.hpp"
 
 #include <SFML/Window/Mouse.hpp>
 
@@ -32,7 +34,7 @@ sex::Vector2<short> sex::SfmlWindow::getMousePosition() const
 
 void sex::SfmlWindow::draw(IDrawable const &drawObject)
 {
-    drawObject.draw(this);
+    drawObject.draw(*this);
 }
 
 void sex::SfmlWindow::clear(Color const &color)
@@ -66,11 +68,24 @@ std::unique_ptr<sex::IEvent> sex::SfmlWindow::fromSfmlEvent(sf::Event const &eve
             return std::make_unique<CloseWindowEvent>();
             break;
 
-        case sf::Event:: MouseButtonPressed:
+        case sf::Event::MouseButtonPressed:
             return std::make_unique<ClickEvent>(getMousePosition());
+            break;
+
+        case sf::Event::KeyPressed:
+            return std::make_unique<KeyPressedEvent>(fromSfmlKeyCode(event.key.code));
+            break;
+
+        case sf::Event::KeyReleased:
+            return std::make_unique<KeyReleasedEvent>(fromSfmlKeyCode(event.key.code));
             break;
 
         default:
             throw std::exception();
     }
+}
+
+sex::KeyCode sex::SfmlWindow::fromSfmlKeyCode(sf::Keyboard::Key key) const
+{
+    return static_cast<sex::KeyCode>(key);
 }

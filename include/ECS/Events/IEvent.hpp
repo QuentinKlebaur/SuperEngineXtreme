@@ -7,6 +7,8 @@ namespace sex {
     enum EventType : uint8_t
     {
         CLICK = 0,
+        KEY_PRESSED,
+        KEY_RELEASED,
         CLOSE_WINDOW
     };
 

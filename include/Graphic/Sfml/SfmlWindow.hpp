@@ -2,9 +2,11 @@
 
 #include "IWindow.hpp"
 #include "IEvent.hpp"
+#include "KeyCode.hpp"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
 namespace sex {
     class SfmlWindow : public IWindow, public sf::RenderWindow
@@ -25,5 +27,6 @@ namespace sex {
 
         private:
             std::unique_ptr<IEvent> fromSfmlEvent(sf::Event const &) const;
+            KeyCode fromSfmlKeyCode(sf::Keyboard::Key) const;
     };
 }

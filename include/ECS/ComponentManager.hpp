@@ -25,24 +25,25 @@ namespace sex {
             ~ComponentManager() = default;
 
             template<typename T, typename... Args>
-            T *add(Entity entity, Args... args)
+            T &add(Entity entity, Args... args)
             {
                 ComponentContainer &componentContainer = getComponentContainer<T>();
 
                 auto iterator = componentContainer.emplace(entity, std::make_unique<T>(args...)).first;
-                return static_cast<T*>(iterator->second.get());
+                return static_cast<T&>(*iterator->second.get());
             }
 
             template<typename T>
-            T *get(Entity entity)
+            T &get(Entity entity)
             {
                 ComponentContainer &componentContainer = getComponentContainer<T>();
 
                 auto iterator = componentContainer.find(entity);
                 if (iterator == componentContainer.end()) {
-                    return nullptr;
+                    // TODO better Exception
+                    throw std::exception();
                 }
-                return static_cast<T*>(iterator->second.get());
+                return static_cast<T&>(*iterator->second.get());
             }
 
             template<typename T>
@@ -52,9 +53,9 @@ namespace sex {
 
                 auto iterator = componentContainer.find(entity);
                 if (iterator == componentContainer.end()) {
-                    return nullptr;
+                    return false;
                 }
-                return static_cast<T*>(iterator->second.get());
+                return false;
             }
 
             template<typename T>
@@ -74,7 +75,7 @@ namespace sex {
                 ComponentContainer &componentContainer = getComponentContainer<T>();
 
                 for (auto &component: componentContainer) {
-                    function(component.first, *(static_cast<T*>(component.second.get())));
+                    function(component.first, (static_cast<T&>(*component.second.get())));
                 }
             }
 

@@ -15,7 +15,7 @@ namespace sex {
             ~DrawableComponent() = default;
 
             void set(IDrawable *);
-            IDrawable *get();
+            IDrawable &get();
         private:
             std::unique_ptr<IDrawable> _drawable;
     };

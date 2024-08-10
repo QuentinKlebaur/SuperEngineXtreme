@@ -39,7 +39,7 @@ void sex::SfmlGraphicModule::createWindow(unsigned int width, unsigned int heigh
     _window = std::make_unique<SfmlWindow>(width, height);
 }
 
-sex::IWindow *sex::SfmlGraphicModule::window()
+sex::IWindow &sex::SfmlGraphicModule::window()
 {
-    return _window.get();
+    return *_window.get();
 }

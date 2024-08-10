@@ -13,7 +13,7 @@ void sex::DrawableComponent::set(IDrawable *drawable)
     _drawable.reset(drawable);
 }
 
-sex::IDrawable *sex::DrawableComponent::get()
+sex::IDrawable &sex::DrawableComponent::get()
 {
-    return _drawable.get();
+    return *_drawable.get();
 }

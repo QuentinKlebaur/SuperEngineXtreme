@@ -17,9 +17,9 @@ namespace sex
         ~SystemManager() = default;
 
             template<typename T, typename... Args>
-            void add(Args... args)
+            T &add(Args... args)
             {
-                _systems.emplace_back(std::make_unique<T>(args...));
+                return dynamic_cast<T&>(*_systems.emplace(_systems.end(), std::make_unique<T>(args...))->get());
             }
 
             template<typename T>
@@ -36,16 +36,17 @@ namespace sex
             }
 
             template<typename T>
-            T *get()
+            T &get()
             {
                 T *system = nullptr;
 
                 for (auto i = _systems.begin(); i != _systems.end(); ++i) {
                     system = dynamic_cast<T*>(i->get());
                     if (system != nullptr)
-                        return system;
+                        return *system;
                 }
-                return nullptr;
+                // TODO Better exception
+                throw std::exception();
             }
 
             void update(UpdateContext const &);

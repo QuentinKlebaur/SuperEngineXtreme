@@ -15,9 +15,9 @@ sex::SfmlDrawable::SfmlDrawable(sf::Drawable *drawable) : _drawableObject(drawab
 {
 }
 
-void sex::SfmlDrawable::draw(IWindow *window) const
+void sex::SfmlDrawable::draw(IWindow &window) const
 {
-    SfmlWindow *sfmlWindow = dynamic_cast<SfmlWindow*>(window);
+    SfmlWindow *sfmlWindow = dynamic_cast<SfmlWindow*>(&window);
 
     if (sfmlWindow) {
         sf::RenderWindow *renderWindow = sfmlWindow;

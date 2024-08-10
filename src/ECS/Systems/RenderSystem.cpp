@@ -10,7 +10,7 @@ sex::RenderSystem::RenderSystem(IWindow *window) : _window{window}
 {
 }
 
-void sex::RenderSystem::beforeUpdate(UpdateContext const &context)
+void sex::RenderSystem::beforeUpdate(UpdateContext const &)
 {
     _window->clear({255, 255, 255});
 }
@@ -18,14 +18,14 @@ void sex::RenderSystem::beforeUpdate(UpdateContext const &context)
 void sex::RenderSystem::update(UpdateContext const &context)
 {
     context.getRegistry().applyOnComponents<DrawableComponent>([&](Entity entity, DrawableComponent &drawable){
-        PositionComponent *position = context.getRegistry().getComponent<PositionComponent>(entity);
+        PositionComponent &position = context.getRegistry().getComponent<PositionComponent>(entity);
 
-        drawable.get()->setPosition(*position);
-        drawable.get()->draw(_window);
+        drawable.get().setPosition(position);
+        drawable.get().draw(*_window);
     });
 }
 
-void sex::RenderSystem::afterUpdate(UpdateContext const &context)
+void sex::RenderSystem::afterUpdate(UpdateContext const &)
 {
     _window->display();
 }

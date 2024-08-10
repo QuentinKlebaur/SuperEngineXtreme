@@ -22,7 +22,7 @@ sex::IGraphicModule &sex::UpdateContext::getGraphicModule() const
 
 sex::IWindow &sex::UpdateContext::getWindow() const
 {
-    return *_graphicModule.window();
+    return _graphicModule.window();
 }
 
 int64_t sex::UpdateContext::getElapsedTime() const

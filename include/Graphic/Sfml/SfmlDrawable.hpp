@@ -15,7 +15,7 @@ namespace sex {
             SfmlDrawable(SfmlDrawable &&) = delete;
             ~SfmlDrawable() = default;
 
-            void draw(IWindow *window) const override;
+            void draw(IWindow &window) const override;
             void setPosition(Vector2<double> const &position) override;
 
         private:
