@@ -25,6 +25,9 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Utils
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Graphic
     ${CMAKE_CURRENT_SOURCE_DIR}/include/Graphic/Sfml
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Core
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Core/Game
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Core/Scene
 )
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)

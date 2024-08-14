@@ -85,6 +85,13 @@ namespace sex {
                 return typeid(T).name();
             }
 
+
+            template<typename T>
+            ComponentContainer const &getComponentContainer() const
+            {
+                return getComponentContainer<T>();
+            }
+
         private:
             template<typename T>
             ComponentContainer &createComponentContainer()

@@ -6,13 +6,13 @@
 #include "Color.hpp"
 #include "UpdateContext.hpp"
 
-sex::RenderSystem::RenderSystem(IWindow *window) : _window{window}
+sex::RenderSystem::RenderSystem()
 {
 }
 
-void sex::RenderSystem::beforeUpdate(UpdateContext const &)
+void sex::RenderSystem::beforeUpdate(UpdateContext const &context)
 {
-    _window->clear({255, 255, 255});
+    context.getWindow().clear({255, 255, 255});
 }
 
 void sex::RenderSystem::update(UpdateContext const &context)
@@ -21,11 +21,11 @@ void sex::RenderSystem::update(UpdateContext const &context)
         PositionComponent &position = context.getRegistry().getComponent<PositionComponent>(entity);
 
         drawable.get().setPosition(position);
-        drawable.get().draw(*_window);
+        drawable.get().draw(context.getWindow());
     });
 }
 
-void sex::RenderSystem::afterUpdate(UpdateContext const &)
+void sex::RenderSystem::afterUpdate(UpdateContext const &context)
 {
-    _window->display();
+    context.getWindow().display();
 }

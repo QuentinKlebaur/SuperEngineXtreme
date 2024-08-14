@@ -11,5 +11,6 @@ target_sources(${ENGINE_BINARY} PRIVATE ${SRC})
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ECS)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Utils)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Graphic)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Core)
 
 target_link_libraries(super_engine_xtreme PRIVATE sex_graphic_sfml)
