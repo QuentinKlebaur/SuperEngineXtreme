@@ -20,7 +20,7 @@ namespace sex {
             void close() override;
             bool isOpen() const override;
             Vector2<short> getMousePosition() const override;
-            void fillEvents(std::queue<std::unique_ptr<IEvent>> &events) override;
+            void fillEvents(std::vector<std::unique_ptr<IEvent>> &events) override;
             void draw(IDrawable const &drawObject) override;
             void clear(Color const &color) override;
             void display() override;

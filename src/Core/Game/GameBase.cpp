@@ -3,20 +3,33 @@
 #include "IScene.hpp"
 #include "Registry.hpp"
 
-sex::GameBase::GameBase(IGraphicModule &graphic) : _graphicModule{graphic}
+
+void sex::GameBase::update(IGraphicModule &graphic, uint64_t elapsedTime)
+{
+    gameUpdate(graphic, elapsedTime);
+    for (auto i = _scenes.begin(); i != _scenes.end(); ++i) {
+        (*i)->update(graphic, elapsedTime);
+    }
+}
+
+
+void sex::GameBase::event(std::vector<std::unique_ptr<IEvent>> const &events)
+{
+    gameEvent(events);
+    for (auto i = _scenes.begin(); i != _scenes.end(); ++i) {
+        (*i)->event(events);
+    }
+}
+
+bool sex::GameBase::isRunning()
+{
+    return _isRunning;
+}
+
+void sex::GameBase::gameUpdate(IGraphicModule &, uint64_t)
 {
 }
 
-void sex::GameBase::run()
+void sex::GameBase::gameEvent(std::vector<std::unique_ptr<IEvent>> const &)
 {
-    _chrono.reset();
-    while (_graphicModule.window().isOpen() && _running)
-    {
-        int64_t elapsedTime = _chrono.reset();
-
-        for (auto i = _scenes.begin(); i != _scenes.end(); ++i) {
-            (*i)->getRegistry().update(_graphicModule, elapsedTime);
-            (*i)->update(_graphicModule, elapsedTime);
-        }
-    }
 }

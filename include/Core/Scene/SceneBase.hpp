@@ -13,8 +13,10 @@ namespace sex {
             ~SceneBase() = default;
 
             Registry &getRegistry() override;
+            void update(IGraphicModule &graphic, int64_t useconds) override;
 
         protected:
+            virtual void updateScene(IGraphicModule &graphic, int64_t useconds);
             Registry _registry;
     };
 }

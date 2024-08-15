@@ -2,6 +2,7 @@
 
 #include "IGraphicModule.hpp"
 #include "IGame.hpp"
+#include "Chrono.hpp"
 
 #include <memory>
 
@@ -19,5 +20,6 @@ namespace sex {
         private:
             std::unique_ptr<IGame> _game;
             std::unique_ptr<IGraphicModule> _graphicModule;
+            Chrono _chrono;
     };
 }

@@ -47,13 +47,13 @@ void sex::SfmlWindow::display()
     sf::RenderWindow::display();
 }
 
-void sex::SfmlWindow::fillEvents(std::queue<std::unique_ptr<IEvent>> &events)
+void sex::SfmlWindow::fillEvents(std::vector<std::unique_ptr<IEvent>> &events)
 {
     sf::Event event;
 
     while (pollEvent(event)) {
         try {
-            events.push(fromSfmlEvent(event));
+            events.push_back(fromSfmlEvent(event));
         } catch (std::exception) {
 
         }

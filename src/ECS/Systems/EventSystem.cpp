@@ -7,15 +7,6 @@
 
 void sex::EventSystem::beforeUpdate(UpdateContext const &context)
 {
-    std::queue<std::unique_ptr<IEvent>> events;
-
-    context.getWindow().fillEvents(events);
-
-    while (!events.empty())
-    {
-        triggerEvent(*events.front());
-        events.pop();
-    }
 }
 
 void sex::EventSystem::update(UpdateContext const &)
@@ -35,6 +26,13 @@ void sex::EventSystem::addCallBack(EventType eventType, CallBackFunction callBac
 
 void sex::EventSystem::removeCallBack()
 {
+}
+
+void sex::EventSystem::triggerEvents(std::vector<std::unique_ptr<IEvent>> const &events)
+{
+    for (auto i = events.begin(); i != events.end(); i++) {
+        triggerEvent(*i->get());
+    }
 }
 
 void sex::EventSystem::triggerEvent(IEvent const &event)

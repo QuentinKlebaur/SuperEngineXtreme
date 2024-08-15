@@ -10,6 +10,6 @@ namespace sex {
             DemoMainScene(DemoMainScene const &&) = delete;
             ~DemoMainScene() = default;
 
-            void update(IGraphicModule &graphic, int64_t useconds);
+            void event(std::vector<std::unique_ptr<IEvent>> const &events) override;
     };
 }

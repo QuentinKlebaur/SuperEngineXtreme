@@ -6,6 +6,8 @@
 
 #include <functional>
 #include <map>
+#include <vector>
+#include <memory>
 
 namespace sex
 {
@@ -22,6 +24,7 @@ namespace sex
             void afterUpdate(UpdateContext const &) override;
 
             void triggerEvent(IEvent const &);
+            void triggerEvents(std::vector<std::unique_ptr<IEvent>> const &);
             void addCallBack(EventType, CallBackFunction);
             void removeCallBack();
 

@@ -96,6 +96,7 @@ sex::DemoMainScene::DemoMainScene(IGraphicModule &graphic)
     });
 }
 
-void sex::DemoMainScene::update(IGraphicModule &graphic, int64_t useconds)
+void sex::DemoMainScene::event(std::vector<std::unique_ptr<IEvent>> const &events)
 {
+    _registry.getSystem<EventSystem>().triggerEvents(events);
 }

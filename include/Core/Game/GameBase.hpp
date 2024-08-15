@@ -12,17 +12,20 @@ namespace sex {
     class GameBase : public IGame
     {
         public:
-            GameBase(IGraphicModule &);
+            GameBase() = default;
             GameBase(GameBase const &) = delete;
             GameBase(GameBase const &&) = delete;
             ~GameBase() = default;
 
-            void run() override;
+            void update(IGraphicModule &graphic, uint64_t elapsedTime) override;
+            void event(std::vector<std::unique_ptr<IEvent>> const &events);
+            bool isRunning() override;
 
         protected:
-            Chrono _chrono;
-            IGraphicModule &_graphicModule;
+            virtual void gameUpdate(IGraphicModule &graphic, uint64_t elapsedTime);
+            virtual void gameEvent(std::vector<std::unique_ptr<IEvent>> const &events);
+
             std::vector<std::unique_ptr<IScene>> _scenes;
-            bool _running = true;
+            bool _isRunning = true;
     };
 }
