@@ -19,6 +19,12 @@ namespace sex {
         _componentManager.destroy(entity);
     }
 
+    void Registry::destoryEntities(std::vector<Entity> const &entities)
+    {
+        _entityManager.destory(entities);
+        _componentManager.destroy(entities);
+    }
+
     std::vector<Entity> const &Registry::getEntities() const
     {
         return _entityManager.get();

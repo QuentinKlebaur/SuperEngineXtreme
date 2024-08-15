@@ -5,7 +5,7 @@
 #include "VelocityComponent.hpp"
 
 namespace sex {
-    void VelocitySystem::update(UpdateContext const &context)
+    void VelocitySystem::update(UpdateContext &context)
     {
         context.getRegistry().applyOnComponents<PositionComponent>([&](Entity entity, PositionComponent &position){
             VelocityComponent &velocity = context.getRegistry().getComponent<VelocityComponent>(entity);
@@ -14,11 +14,11 @@ namespace sex {
         });
     }
 
-    void VelocitySystem::beforeUpdate(UpdateContext const &)
+    void VelocitySystem::beforeUpdate(UpdateContext &)
     {
     }
 
-    void VelocitySystem::afterUpdate(UpdateContext const &)
+    void VelocitySystem::afterUpdate(UpdateContext &)
     {
     }
 }

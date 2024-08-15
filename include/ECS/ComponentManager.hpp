@@ -10,7 +10,6 @@
 #include <cstddef>
 #include <memory>
 #include <typeinfo>
-#include <iostream>
 #include <functional>
 
 #define Type std::string
@@ -25,7 +24,7 @@ namespace sex {
             ~ComponentManager() = default;
 
             template<typename T, typename... Args>
-            T &add(Entity entity, Args... args)
+            T &add(Entity entity, Args... args) noexcept
             {
                 ComponentContainer &componentContainer = getComponentContainer<T>();
 
@@ -67,7 +66,17 @@ namespace sex {
                 std::remove(componentContainer.begin(), componentContainer.end(), entity);
             }
 
+            template<typename T>
+            void destroy(std::vector<Entity> const &entities)
+            {
+                ComponentContainer &componentContainer = getComponentContainer<T>();
+
+                // TODO erase
+                //std::remove(componentContainer.begin(), componentContainer.end(), entity);
+            }
+
             void destroy(Entity entity);
+            void destroy(std::vector<Entity> const &entities);
 
             template<typename T>
             void apply(std::function<void(Entity, T &)> function)
@@ -87,7 +96,7 @@ namespace sex {
 
 
             template<typename T>
-            ComponentContainer const &getComponentContainer() const
+            ComponentContainer const &getComponentContainer() const noexcept
             {
                 return getComponentContainer<T>();
             }

@@ -14,8 +14,8 @@ namespace sex
             VelocitySystem(VelocitySystem const &&) = delete;
             ~VelocitySystem() = default;
 
-            void beforeUpdate(UpdateContext const &) override;
-            void update(UpdateContext const &) override;
-            void afterUpdate(UpdateContext const &) override;
+            void beforeUpdate(UpdateContext &) override;
+            void update(UpdateContext &) override;
+            void afterUpdate(UpdateContext &) override;
     };
 }

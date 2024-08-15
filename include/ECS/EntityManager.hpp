@@ -17,6 +17,7 @@ namespace sex
         Entity add();
         bool has(Entity entity);
         void destory(Entity entity);
+        void destory(std::vector<Entity> const &entities);
         std::vector<Entity> const &get() const;
 
     private:

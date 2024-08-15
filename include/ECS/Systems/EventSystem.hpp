@@ -19,9 +19,9 @@ namespace sex
             EventSystem(EventSystem const &&) = delete;
             ~EventSystem() = default;
 
-            void beforeUpdate(UpdateContext const &) override;
-            void update(UpdateContext const &) override;
-            void afterUpdate(UpdateContext const &) override;
+            void beforeUpdate(UpdateContext &) override;
+            void update(UpdateContext &) override;
+            void afterUpdate(UpdateContext &) override;
 
             void triggerEvent(IEvent const &);
             void triggerEvents(std::vector<std::unique_ptr<IEvent>> const &);

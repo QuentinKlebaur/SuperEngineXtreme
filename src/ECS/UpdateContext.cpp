@@ -10,6 +10,11 @@ sex::UpdateContext::UpdateContext(IGraphicModule &graphic, Registry &registry, i
 {
 }
 
+sex::UpdateContext::~UpdateContext()
+{
+    _registry.destoryEntities(_entitiesToRemove);
+}
+
 sex::Registry &sex::UpdateContext::getRegistry() const
 {
     return _registry;
@@ -28,4 +33,9 @@ sex::IWindow &sex::UpdateContext::getWindow() const
 int64_t sex::UpdateContext::getElapsedTime() const
 {
     return _elapsedTime;
+}
+
+void sex::UpdateContext::removeEntity(Entity entity)
+{
+    _entitiesToRemove.push_back(entity);
 }

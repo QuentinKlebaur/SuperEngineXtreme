@@ -18,6 +18,7 @@ namespace sex {
             Entity createEntity();
             bool hasEntity(Entity entity);
             void destoryEntity(Entity entity);
+            void destoryEntities(std::vector<Entity> const &entity);
             std::vector<Entity> const &getEntities() const;
 
             // Components

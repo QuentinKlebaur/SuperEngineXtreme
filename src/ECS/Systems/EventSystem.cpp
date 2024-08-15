@@ -5,16 +5,16 @@
 #include <queue>
 #include <memory>
 
-void sex::EventSystem::beforeUpdate(UpdateContext const &context)
+void sex::EventSystem::beforeUpdate(UpdateContext &context)
 {
 }
 
-void sex::EventSystem::update(UpdateContext const &)
+void sex::EventSystem::update(UpdateContext &)
 {
 
 }
 
-void sex::EventSystem::afterUpdate(UpdateContext const &)
+void sex::EventSystem::afterUpdate(UpdateContext &)
 {
 
 }

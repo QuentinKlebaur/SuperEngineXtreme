@@ -11,8 +11,8 @@ namespace sex {
         public:
             virtual ~ISystem() {};
 
-            virtual void beforeUpdate(UpdateContext const &) = 0;
-            virtual void update(UpdateContext const &) = 0;
-            virtual void afterUpdate(UpdateContext const &) = 0;
+            virtual void beforeUpdate(UpdateContext &) = 0;
+            virtual void update(UpdateContext &) = 0;
+            virtual void afterUpdate(UpdateContext &) = 0;
     };
 }

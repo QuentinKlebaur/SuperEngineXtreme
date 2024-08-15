@@ -4,6 +4,7 @@
 #include "IEvent.hpp"
 
 #include <vector>
+#include <iostream>
 
 sex::Core::Core()
 {

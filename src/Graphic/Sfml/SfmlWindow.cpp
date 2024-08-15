@@ -8,6 +8,8 @@
 
 #include <SFML/Window/Mouse.hpp>
 
+#include <SFML/Window/Window.hpp>
+
 #include <exception>
 
 sex::SfmlWindow::SfmlWindow(unsigned int width, unsigned int height) : sf::RenderWindow{{width, height}, "window"}
@@ -30,6 +32,12 @@ sex::Vector2<short> sex::SfmlWindow::getMousePosition() const
     sf::Vector2i pos = sf::Mouse::getPosition(*this);
 
     return {pos.x, pos.y};
+}
+
+
+sex::Vector2<short> sex::SfmlWindow::size() const
+{
+    return {sf::Window::getSize().x, sf::Window::getSize().y};
 }
 
 void sex::SfmlWindow::draw(IDrawable const &drawObject)

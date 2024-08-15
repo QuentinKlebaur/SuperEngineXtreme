@@ -49,7 +49,7 @@ namespace sex
                 throw std::exception();
             }
 
-            void update(UpdateContext const &);
+            void update(UpdateContext &);
 
         private:
             std::vector<std::unique_ptr<ISystem>> _systems;
